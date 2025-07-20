@@ -40,6 +40,10 @@ A cloud-based data engineering project that demonstrates real-world data ingesti
      - Used JSON config with `csv_relative_url` and `file_name` inside `ForEach` loop
      - Triggered dependent copy activity to move SQL data to `/bronze`
 
+     
+   <img width="1680" height="1050" alt="Screenshot 2025-07-15 at 8 41 57 AM" src="https://github.com/user-attachments/assets/6489cb09-047a-48f2-b727-054e715544da" />
+
+    
 4. **🔗 Configuration for Azure Databricks Access**
    - Registered App in Azure Active Directory  
    - Created Client Secret and assigned **Storage Blob Data Contributor** role  
@@ -104,29 +108,12 @@ A cloud-based data engineering project that demonstrates real-world data ingesti
 
 ---
 
-### 📂 Folder Structure
-
-```
-.
-├── notebooks/
-│   └── databricks_etl.py
-├── adf/
-│   └── pipeline.json
-├── data/
-│   └── sample_input.csv
-├── Architecture Diagram.png
-├── README.md
-└── requirements.txt
-```
-
----
-
 ### 📈 Key Concepts
 
 - Medallion Architecture: Bronze (raw) → Silver (cleaned) → Gold (analytics-ready)
+- JSON-driven dynamic ingestion pipeline in ADF
 - PySpark transformations in Databricks
 - CETAS (Create External Table As Select) in Synapse
-- JSON-driven dynamic ingestion pipeline in ADF
 
 ---
 
@@ -134,5 +121,4 @@ A cloud-based data engineering project that demonstrates real-world data ingesti
 
 - [Azure Docs](https://learn.microsoft.com/en-us/azure/)
 - [filess.io](https://dash.filess.io/) for free DB hosting  
-- [Kaggle](https://www.kaggle.com/) for datasets  
-- Community blogs and tutorials on data lakehouse and medallion design  
+- [Olist Dataset](https://www.kaggle.com/) for datasets  

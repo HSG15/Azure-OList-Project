@@ -1,0 +1,40 @@
+Create azure account
+
+Create resource group (ecommerce-live)
+Create resource Azure Data Factory (hsg-olist-ecomm-df) > Launch Studio
+	Author > new Pipeline > Move and transforms > Copy Data (Source from GitHub)
+Create resource storage account (ADLS Gen2) (hsgolistecommstorage)
+	Data storage > Containers > olist-data (create new container)
+        Inside container > add directory (medallion architecture) -> (gold, silver, bronze)
+Now post data from data factory to storage (bronze), hich contains the raw data.
+
+Connect to Azure Data Lake Storage - https://learn.microsoft.com/en-us/azure/databricks/connect/storage/tutorial-azure-storage
+1. Create a app registration
+2. Certificate & secret > New client secret
+3. Add role assignment (Storage Blob Data Contributor).
+
+
+
+Retrieve Row data from Kaggle and import those into github repo.
+One dataset is pushed to filess (free db hosting platform) mysql db.
+Then made http request (github linked service) to retrieve those data in azure data factory and made an mysql linked service.
+I created a JSON format of with csv_relative_url and file_name. and put this in a foreach loop to send data to my bronze file of ADLS gen2 and 
+added another copy data which will trigger once the json data added into adls, whiere the source is sql and sink is adls.
+Here Raw Data ingestion completed to ADLS GEN2 via Azure DF.
+
+
+
+Then Connected adls to databricks where I process some data and again made a connection with MongoDB hosted on filess.io and initially pushed 
+some data over there. In databricks i retrieve the data from files.io mongo db as well. and process all dataset and joined them to get a whole.
+Then pushed all transformed data to silver folder in a parquet format.
+
+
+Then created azure synapse account.
+created synapse storage (hsg-synapse-storage)
+SQL Server admin login - olistuser
+#olistsql123
+Read listdatastorage from synapse, so give IAM permission role to the adls.
+Craete serverless sql pool database. Then in the database from a sql script I retrieve the adls silver file data. Then created a view inside the db 
+where i kept all the data here order_status = delivered. now i am ready to serve my data. so created master key encryption. 
+wwent through documentation -- Data Migration to Gold Layer (https://learn.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-cetas)
+then finally pushed my data to gold layer.

@@ -7,7 +7,7 @@ A cloud-based data engineering project that demonstrates real-world data ingesti
 ### 📌 Project Architecture
 
 
-<img width="1920" height="1080" alt="diagram" src="https://github.com/user-attachments/assets/3e369558-631c-4329-8e3e-29234cdabc49" />
+![WhatsApp Image 2025-09-07 at 19 58 44](https://github.com/user-attachments/assets/ae316aa7-a9e0-4e2d-bf28-b60923ef1662)
 
 
 ---

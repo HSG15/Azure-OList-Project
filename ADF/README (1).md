@@ -50,10 +50,9 @@ in **Azure Data Factory (ADF)** using a **ForEach** activity and a
 -   Click on the **ForEach** activity.
 -   In the **Items** field, add the following dynamic content:
 
-```{=html}
-<!-- -->
 ```
-    @pipeline().parameters.FileList
+@pipeline().parameters.FileList
+```
 
 This enables looping through each object in the array.
 
@@ -72,10 +71,9 @@ This enables looping through each object in the array.
 -   In **Relative URL**, click **Add Dynamic Content**.
 -   Use the following expression:
 
-```{=html}
-<!-- -->
 ```
-    @item().csv_relative_url
+@item().csv_relative_url
+```
 
 This dynamically picks the source file path during each loop iteration.
 
@@ -87,10 +85,9 @@ This dynamically picks the source file path during each loop iteration.
 -   In **File Name**, click **Add Dynamic Content**.
 -   Use the following expression:
 
-```{=html}
-<!-- -->
 ```
-    @item().file_name
+@item().file_name
+```
 
 This dynamically assigns the target file name.
 
